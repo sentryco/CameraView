@@ -29,7 +29,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/yourUsername/CameraView",
+            url: "https://github.com/sentryco/CameraView",
             branch: "main"
         )
     ],
