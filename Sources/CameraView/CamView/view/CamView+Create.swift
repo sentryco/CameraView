@@ -1,8 +1,8 @@
-import Logger
+// import Logger
 #if os(iOS)
 import UIKit
 import AVFoundation
-import With
+// import With
 /**
  * Extension for CamView that creates the capture session
  * - Note: This extension creates the capture session for the `CamView class. To use it, call the createCaptureSession() method to create the capture session, and add the input and output devices to the session. In a real world application, you could add support for customizing the behavior of the capture session, and handling errors and user input.
@@ -16,26 +16,24 @@ extension CamView {
     */
    internal func createCaptureSession() {
       guard let captureDevice: AVCaptureDevice = .default(for: .video) else {
-         Logger.error("\(Trace.trace()) - could not get capture device", tag: .ui)
+         // Logger.error("\(Trace.trace()) - could not get capture device", tag: .ui)
          // promptAlert(title: "Error", msg: "Could not get capture device", primaryText: "Dismiss", secondaryText: nil, primaryHandler: {}, secondaryHandler: nil)
          return
       } // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
       do {
-         with(try AVCaptureDeviceInput(device: captureDevice)) { (_ input: inout AVCaptureInput) in // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-            captureSession.addInput(input) // Set the input device on the capture session.
-         }
+         let input: AVCaptureInput = try AVCaptureDeviceInput(device: captureDevice) // Get an instance of the AVCaptureDeviceInput class using the previous device object.
+         captureSession.addInput(input) // Set the input device on the capture session.
       } catch { // This should be called if in simulator mode or if user has not agreed to camera access etc
-         Logger.warn("\(Trace.trace()) - Could not get capture device error: \(error)", tag: .ui) // If any error occurs, simply print it out and don't continue any more.
+         // Logger.warn("\(Trace.trace()) - Could not get capture device error: \(error)", tag: .ui) // If any error occurs, simply print it out and don't continue any more.
          // promptAlert(title: "Error", msg: "Could not get capture device error: \(error)", primaryText: "Dismiss", secondaryText: nil, primaryHandler: {}, secondaryHandler: nil)
          return
       }
       // fix: use type bellow
-      with(AVCaptureMetadataOutput()) { output in // Initialize a `AVCaptureMetadataOutput` object and set it as the output device to the capture session.
-         captureSession.addOutput(output)
-         // - Fixme: ⚠️️ weakify the bellow?
-         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main) // Set delegate and use the default dispatch queue to execute the call back
-         output.metadataObjectTypes = CamView.supportedCodeTypes // Set supported QR types
-      }
+      let output = AVCaptureMetadataOutput() // Initialize a `AVCaptureMetadataOutput` object and set it as the output device to the capture session.
+      captureSession.addOutput(output)
+      // - Fixme: ⚠️️ weakify the bellow?
+      output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main) // Set delegate and use the default dispatch queue to execute the call back
+      output.metadataObjectTypes = CamView.supportedCodeTypes // Set supported QR types
    }
 }
 /**
@@ -49,12 +47,12 @@ extension CamView {
     * - Returns: The initialized QR code frame view
     */
    internal func createQRCodeFrameView() -> UIView {
-      with(.init()) {
-         $0.layer.borderColor = UIColor.systemGreen.cgColor // Set the border color to green
-         $0.layer.borderWidth = 2 // Set the border width to 2
-         self.addSubview($0) // Add the QR code frame view to the view hierarchy
-         self.bringSubviewToFront($0) // Bring the QR code frame view to the front
-      }
+      let view: UIView = .init()
+      view.layer.borderColor = UIColor.systemGreen.cgColor // Set the border color to green
+      view.layer.borderWidth = 2 // Set the border width to 2
+      self.addSubview(view) // Add the QR code frame view to the view hierarchy
+      self.bringSubviewToFront(view) // Bring the QR code frame view to the front
+      return view
    }
    /**
     * Create the video preview layer with the capture session
@@ -62,12 +60,12 @@ extension CamView {
     * - Returns: The created video preview layer
     */
    internal func createPreviewLayer() -> AVCaptureVideoPreviewLayer {
-      with(.init(session: captureSession)) {
-         $0.videoGravity = AVLayerVideoGravity.resizeAspectFill // Set the video gravity to resizeAspectFill
-         let size: CGSize = .init(width: self.layer.bounds.width, height: self.layer.bounds.height)
-         $0.frame = .init(origin: self.layer.bounds.origin, size: size) // Set the frame to the bounds of the view
-         self.layer.addSublayer($0) // Add the video preview layer to the view's layer hierarchy
-      }
+      let layer = AVCaptureVideoPreviewLayer(session: captureSession)
+      layer.videoGravity = AVLayerVideoGravity.resizeAspectFill // Set the video gravity to resizeAspectFill
+      let size: CGSize = .init(width: self.layer.bounds.width, height: self.layer.bounds.height)
+      layer.frame = .init(origin: self.layer.bounds.origin, size: size) // Set the frame to the bounds of the view
+      self.layer.addSublayer(layer) // Add the video preview layer to the view's layer hierarchy
+      return layer
    }
 }
 #endif

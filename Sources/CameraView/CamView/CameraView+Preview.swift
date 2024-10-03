@@ -1,6 +1,6 @@
 #if os(iOS)
 import SwiftUI
-import HybridColor
+/*import HybridColor*/
 /**
  * Preview
  * - Description: This is the preview for the CameraView.
@@ -27,7 +27,7 @@ import HybridColor
    }
    return ZStack {
       Rectangle() // This sets the background color of the app
-         .fill(Color.blackOrWhite)
+         .fill(Color.black) /*blackOrWhite*/
          .ignoresSafeArea(.all)
       DebugContainer()
    }
