@@ -4,7 +4,10 @@ import AVFoundation
 import UIKit
 /**
  * CamView uikit - swiftui bridge
- * - Description: A SwiftUI view that acts as a bridge to a UIKit UIViewController for displaying a camera interface on iOS. It allows capturing photos or videos and provides a completion handler to process the captured media.
+ * - Description: A SwiftUI view that acts as a bridge to a UIKit UIViewController
+ *                for displaying a camera interface on iOS. It allows capturing
+ *                photos or videos and provides a completion handler to process
+ *                the captured media.
  * - Fixme: ⚠️️ Maybe there is a way to use this in SwiftUI as well. do research etc
  */
 public struct CameraView: UIViewControllerRepresentable {

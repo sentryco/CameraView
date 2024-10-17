@@ -4,7 +4,12 @@ import AVFoundation
 extension CamView {
   /**
    * Extension for CamView that handles metadata output from the capture session
-   * - Description: This method is called when the AVCaptureMetadataOutput object outputs metadata objects. It checks if any of the metadata objects are of a supported QR code type. If so, it updates the QR code frame view to highlight the QR code's location and calls the onComplete closure with the QR code's content.
+   * - Description: This method is called when the AVCaptureMetadataOutput
+   *                object outputs metadata objects. It checks if any of the
+   *                metadata objects are of a supported QR code type. If so,
+   *                it updates the QR code frame view to highlight the QR
+   *                code's location and calls the onComplete closure with
+   *                the QR code's content.
    * - Remark: There are other output methods as well such as `captureOutput`
    * - Fixme: ⚠️️ The ideal way to create `qrCodeFrameView` frame is to get the points of the QR and draw lines, still relevant?
    * - Parameters:

@@ -1,7 +1,7 @@
 #if os(iOS)
 import UIKit
 /**
- * `ViewController` used to capture QR code for iOS
+ * `ViewController` used to capture QR-code for iOS
  * ## Examples:
  * DispatchQueue.main.async {
  *    let vc = CamVC()
@@ -19,7 +19,7 @@ public final class CamVC: UIViewController {
    public var onComplete: OnComplete = defaultOnComplete
    /**
     * Initializes a new instance of the `CamVC` class.
-    * - Parameter onComplete: The closure to be called when a capture is returned.
+    * - Parameter onComplete: The closure to be called when a capture is returned
     */
    public init(onComplete: @escaping OnComplete = defaultOnComplete) {
       self.onComplete = onComplete // Set the onComplete closure

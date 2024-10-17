@@ -61,5 +61,7 @@ struct ContentView: View {
 }
 ```
 
-## License `CameraView` is available under the MIT license. See the LICENSE file for more info.  
-
+## Todo:
+- Remove unit-tests
+- improve  Error Handling
+- improve Asynchronous Operations Handling

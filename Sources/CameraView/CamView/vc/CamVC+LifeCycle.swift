@@ -22,8 +22,8 @@ extension CamVC {
    }
    /**
     * End of Lifecycle methods for CamVC
-    * This method is called when the view is about to disappear from the screen. 
-    * It stops the camera and calls the superclass's viewWillDisappear method.
+    * - Abstract: This method is called when the view is about to disappear from the screen. 
+    * - Description: It stops the camera and calls the superclass's viewWillDisappear method.
     *  - Parameters:
     *   - animated: If true, the disappearance of the view is being animated.
     */
