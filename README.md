@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/CameraView/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/CameraView/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/bdc0d8ab-1d78-42a1-b92d-451cdfd0b111)](https://codebeat.co/projects/github-com-sentryco-cameraview-main)
 
 # CameraView
 
