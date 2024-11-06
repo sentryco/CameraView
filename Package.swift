@@ -13,7 +13,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "CameraView",
-            targets: ["CameraView"]),
+            targets: ["CameraView"])
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,6 +22,6 @@ let package = Package(
             name: "CameraView"),
         .testTarget(
             name: "CameraViewTests",
-            dependencies: ["CameraView"]),
+            dependencies: ["CameraView"])
     ]
 )
