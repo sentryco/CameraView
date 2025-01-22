@@ -45,7 +45,7 @@ extension CamView {
     *         world application, you could replace this with a more meaningful callback.
     */
    public static var defaultOnComplete: OnComplete = { _ in
-      Swift.print("default onComplete")
+      Swift.print("default onComplete - QR Code detected: \(payload)")
    }
 }
 #endif

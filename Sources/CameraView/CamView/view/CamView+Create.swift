@@ -25,7 +25,7 @@ extension CamView {
     *         capture session. Finally, it initializes a `AVCaptureMetadataOutput`
     *         object and sets it as the output device to the capture session, sets
     *         the delegate to self, and sets the supported QR code types.
-    * - Fixme: ⚠️️ Move the error handling to caller?
+    * - Fixme: ⚠️️ Move the error handling to caller? 👈
     */
    internal func createCaptureSession() {
       guard let captureDevice: AVCaptureDevice = .default(for: .video) else {
