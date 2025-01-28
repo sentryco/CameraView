@@ -4,12 +4,13 @@ import UIKit
  * Lifecycle
  */
 extension CamVC {
-   // fixme: add doc
+   /// Sets up the main view for the camera view controller.
    override public func loadView() {
       let camView = CamView(frame: .zero, onComplete: onComplete)
       view = camView
    }
-   // fixme: add doc
+
+   /// Called after the controller's view has been loaded into memory. Starts the camera view.
    override public func viewDidLoad() {
       super.viewDidLoad()
       (view as? CamView)?.start()
